@@ -25,7 +25,7 @@ function sendEmail(body) {
         Username: "checkingman38@gmail.com",
         Password: "anh123123",
         EnableSsl: true,
-        To: 'mr.lenovi@gmail.com',
+        To: 'checkingman38@gmail.com',
         From: "checkingman38@gmail.com",
         Subject: "Checking man gửi thông điệp",
         Body: body,
