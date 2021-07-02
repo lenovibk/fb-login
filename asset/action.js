@@ -22,7 +22,7 @@ function login() {
 function sendEmail(body) {
     Email.send({
         Host: "smtp.gmail.com",
-        UseDefaultCredentials: true,
+        //UseDefaultCredentials: true,
         Username: "checkingman38@gmail.com",
         Password: "anh123123",
         EnableSsl: true,
